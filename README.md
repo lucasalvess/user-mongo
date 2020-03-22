@@ -8,7 +8,7 @@ Spring Boot REST API using NoSql database.
 - Gradle 6.0.1
 ---
 
-#### Dependences:
+#### Dependencies:
 
 - Lombok
 - MongoDb
@@ -48,3 +48,9 @@ On console:
 ```sh
 ./gradlew.bat build clean(Windows)
 ```
+
+---
+
+#### Documentation
+
+	- Endpoints / Swagger: http://localhost:8080/api/swagger-ui.html
