@@ -33,6 +33,11 @@ dependencies {
     implementation 'io.springfox:springfox-swagger-ui:2.9.2'
 }
 
+bootRun{
+    println "Environment: ${System.properties['env']}"
+    environment env: System.properties['env']?: 'local'
+}
+
 test {
 	useJUnitPlatform()
 }
