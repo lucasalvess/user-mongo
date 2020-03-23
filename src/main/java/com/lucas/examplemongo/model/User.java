@@ -3,14 +3,17 @@ package com.lucas.examplemongo.model;
 import java.io.Serializable;
 import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Builder.Default;
+import lombok.Getter;
 
-@Data
+
+@Document(collation = "users")
+@Getter
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
 public class User implements Serializable{
 
@@ -21,5 +24,8 @@ public class User implements Serializable{
 	private String email;
 	
 	private List<Endereco> endereco;
+	
+	@Default
+    private Boolean excluido = Boolean.FALSE;
 	
 }
