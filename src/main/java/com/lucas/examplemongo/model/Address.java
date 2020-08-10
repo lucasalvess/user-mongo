@@ -2,7 +2,7 @@ package com.lucas.examplemongo.model;
 
 import javax.validation.constraints.Positive;
 
-import com.lucas.examplemongo.model.enums.Municipio;
+import com.lucas.examplemongo.model.enums.City;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Endereco {
+public class Address {
 	
-	private Municipio municipo;
+	private City city;
 	
-	private String rua;
+	private String street;
 	
 	@Positive
-	private Integer numero;
+	private Integer number;
 }

@@ -19,13 +19,13 @@ public class User implements Serializable{
 
 	private static final long serialVersionUID = 2345425435345243L;
 
-	private String nome;
+	private String name;
 	
 	private String email;
 	
-	private List<Endereco> endereco;
+	private List<Address> addresses;
 	
 	@Default
-    private Boolean excluido = Boolean.FALSE;
+    private Boolean deleted = Boolean.FALSE;
 	
 }

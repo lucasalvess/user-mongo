@@ -1,6 +1,6 @@
 package com.lucas.examplemongo.model.enums;
 
-public enum Municipio {
+public enum City {
 	Suzano,
 	MogiDasCruzes,
 	Poa,
