@@ -1,17 +1,10 @@
-version: '3.3'
+version: '3.4'
 services:
   mongo:
     image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: toor
     ports:
       - 27017:27017
+    container_name: mongo
+    restart: always
     volumes:
-      - ../volumes/MongoDB:/data/db
-    networks:
-      - mongo-compose-network
-
-networks:
- mongo-compose-network:
-   driver: bridge
+      - ./volumes/MongoDB:/data/db
