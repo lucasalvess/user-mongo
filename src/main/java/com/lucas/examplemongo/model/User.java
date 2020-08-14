@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Builder.Default;
 
 
-@Document(collation = "users")
+@Document(collection = "users")
 @Data
 @Builder
 @AllArgsConstructor
