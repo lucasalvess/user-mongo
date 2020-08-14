@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "user",produces = MediaType.APPLICATION_JSON_VALUE)
@@ -24,5 +25,10 @@ public class UserResource {
     @PostMapping
     public UserDTO createUser(@RequestBody UserForm userForm){
         return service.createUser(userForm);
+    }
+
+    @DeleteMapping
+    public void removeUser(@RequestParam String id){
+        service.remove(id);
     }
 }
