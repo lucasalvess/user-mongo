@@ -36,6 +36,14 @@ public class UserService {
         return userDTOS;
     }
 
+    public UserDTO findById(String id){
+        Optional<User> user = repository.findById(id);
+        if (user.isEmpty())
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User not founded");
+
+        return new UserDTO(user.get());
+    }
+
     public void remove(String id){
         Optional<User> user = repository.findById(id);
         if (user.isEmpty())

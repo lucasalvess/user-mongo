@@ -22,12 +22,17 @@ public class UserResource {
         return service.findAll();
     }
 
+    @GetMapping(path = "/{id}")
+    public UserDTO findAllUsers(@RequestParam String id){
+        return service.findById(id);
+    }
+
     @PostMapping
     public UserDTO createUser(@RequestBody UserForm userForm){
         return service.createUser(userForm);
     }
 
-    @DeleteMapping
+    @DeleteMapping(path = "/{id}")
     public void removeUser(@RequestParam String id){
         service.remove(id);
     }

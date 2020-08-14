@@ -19,6 +19,10 @@ public interface UserResourceAPI {
     @ApiResponse(code = 201, message = "Ok", response = UserDTO.class)
     UserDTO createUser(@RequestBody UserForm userForm);
 
+    @ApiOperation(value = "Update a new user")
+    @ApiResponse(code = 201, message = "Ok", response = UserDTO.class)
+    UserDTO updateUser(@RequestBody UserForm userForm);
+
     @ApiOperation(value = "Remove an user")
     @ApiResponse(code = 204, message = "Ok")
     void removeUser(@RequestParam String id);
