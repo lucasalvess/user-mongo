@@ -8,8 +8,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Builder
 @Data
@@ -26,9 +26,15 @@ public class UserDTO implements Serializable {
 		this.id = user.getId();
 		this.name = user.getName();
 		this.email = user.getEmail();
-     	user.getAddresses().stream()
-				.map(address -> this.addresses.add(new AddressDTO(address)))
-				.collect(Collectors.toList());
+
+		List<AddressDTO> addressDTOList = new ArrayList<>();
+
+		for (Address address:user.getAddresses()) {
+			addressDTOList.add(new AddressDTO(address));
+		}
+
+		this.addresses = addressDTOList;
+
 	}
 
 }
