@@ -32,6 +32,9 @@ public class UserResource {
         return service.createUser(userForm);
     }
 
+    @PutMapping(path = "/{id}")
+    public UserDTO updateUser(@RequestBody UserForm userForm, @RequestParam String id){ return service.update(userForm, id);}
+
     @DeleteMapping(path = "/{id}")
     public void removeUser(@RequestParam String id){
         service.remove(id);

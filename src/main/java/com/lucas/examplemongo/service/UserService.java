@@ -5,6 +5,7 @@ import com.lucas.examplemongo.model.User;
 import com.lucas.examplemongo.repository.UserRepository;
 import com.lucas.examplemongo.resource.form.UserForm;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -50,5 +51,16 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND,"User not founded");
 
         repository.delete(user.get());
+    }
+
+    public UserDTO update(UserForm userForm, String id){
+        Optional<User> user = repository.findById(id);
+
+        User existentUser = user.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"User not founded"));
+
+        BeanUtils.copyProperties(userForm,existentUser);
+        repository.save(existentUser);
+
+        return new UserDTO(existentUser);
     }
 }
