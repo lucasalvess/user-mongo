@@ -4,11 +4,13 @@ import com.lucas.examplemongo.model.Address;
 import com.lucas.examplemongo.model.enums.City;
 import lombok.*;
 
+import java.io.Serializable;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressDTO {
+public class AddressDTO implements Serializable {
 
     private City city;
     private String street;

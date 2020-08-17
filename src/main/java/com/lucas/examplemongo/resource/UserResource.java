@@ -4,8 +4,10 @@ import com.lucas.examplemongo.dto.UserDTO;
 import com.lucas.examplemongo.resource.form.UserForm;
 import com.lucas.examplemongo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+import springfox.documentation.annotations.Cacheable;
 
 import java.util.List;
 import java.util.UUID;
@@ -23,7 +25,7 @@ public class UserResource {
     }
 
     @GetMapping(path = "/{id}")
-    public UserDTO findAllUsers(@RequestParam String id){
+    public UserDTO findUser(@RequestParam String id){
         return service.findById(id);
     }
 
